@@ -1,0 +1,362 @@
+@startuml
+annotation java.lang.Override
+annotation java.lang.SuppressWarnings
+class com.digitalsignature.common.Helper
+class com.digitalsignature.common.ViewHelper
+class com.digitalsignature.controller.App
+class com.digitalsignature.controller.AppController
+class com.digitalsignature.controller.sign.DigitalSignatureController
+class com.digitalsignature.controller.sign.KeyManagementController
+class com.digitalsignature.controller.sign.SignController
+class com.digitalsignature.controller.sign.VerifyController
+class com.digitalsignature.controller.user.UserController
+class com.digitalsignature.dao.concrete.SignDAO
+class com.digitalsignature.dao.concrete.UserDAO
+class com.digitalsignature.dao.factory.DaoFactory
+class com.digitalsignature.gui.GUI
+class com.digitalsignature.model.ModelAES
+class com.digitalsignature.model.ModelFriendKey
+class com.digitalsignature.model.ModelInputVerify
+class com.digitalsignature.model.ModelKey
+class com.digitalsignature.model.ModelMyKey
+class com.digitalsignature.model.ModelResult
+class com.digitalsignature.model.ModelUserInfomation
+class com.digitalsignature.model.ModelZipper
+class java.awt.Color
+class java.awt.Component
+class java.awt.Container
+class java.awt.Cursor
+class java.awt.Desktop
+class java.awt.Dimension
+class java.awt.Font
+class java.awt.datatransfer.DataFlavor
+class java.awt.dnd.DnDConstants
+class java.awt.dnd.DropTarget
+class java.awt.dnd.DropTargetDropEvent
+class java.awt.event.ActionEvent
+class java.awt.event.ActionListener
+class java.awt.event.KeyAdapter
+class java.awt.event.KeyEvent
+class java.awt.event.MouseAdapter
+class java.awt.event.MouseEvent
+class java.io.BufferedOutputStream
+class java.io.DataInputStream
+class java.io.File
+class java.io.FileInputStream
+class java.io.FileNotFoundException
+class java.io.FileOutputStream
+class java.io.IOException
+class java.io.InputStream
+class java.io.ObjectInputStream
+class java.io.ObjectOutputStream
+class java.io.UnsupportedEncodingException
+class java.math.BigInteger
+class java.net.URL
+class java.nio.file.Files
+class java.security.GeneralSecurityException
+class java.security.InvalidKeyException
+class java.security.KeyFactory
+class java.security.KeyPair
+class java.security.KeyPairGenerator
+class java.security.MessageDigest
+class java.security.NoSuchAlgorithmException
+class java.security.PrivateKey
+class java.security.PublicKey
+class java.security.SecureRandom
+class java.security.Signature
+class java.security.SignatureException
+class java.security.spec.PKCS8EncodedKeySpec
+class java.security.spec.RSAPrivateKeySpec
+class java.security.spec.RSAPublicKeySpec
+class java.security.spec.X509EncodedKeySpec
+class java.sql.Connection
+class java.sql.DriverManager
+class java.sql.PreparedStatement
+class java.sql.ResultSet
+class java.sql.SQLException
+class java.text.SimpleDateFormat
+class java.util.ArrayList
+class java.util.Arrays
+class java.util.Base64
+class java.util.Calendar
+class java.util.HashMap
+class java.util.List
+class java.util.Map
+class java.util.logging.Level
+class java.util.logging.Logger
+class java.util.stream.Collectors
+class javax.crypto.Cipher
+class javax.crypto.spec.IvParameterSpec
+class javax.crypto.spec.SecretKeySpec
+class javax.swing.BorderFactory
+class javax.swing.ImageIcon
+class javax.swing.JButton
+class javax.swing.JCheckBox
+class javax.swing.JComboBox
+class javax.swing.JDialog
+class javax.swing.JFileChooser
+class javax.swing.JFrame
+class javax.swing.JLabel
+class javax.swing.JMenuItem
+class javax.swing.JOptionPane
+class javax.swing.JPanel
+class javax.swing.JPasswordField
+class javax.swing.JPopupMenu
+class javax.swing.JScrollPane
+class javax.swing.JTabbedPane
+class javax.swing.JTable
+class javax.swing.JTextArea
+class javax.swing.JTextField
+class javax.swing.SwingUtilities
+class javax.swing.UIManager
+class javax.swing.UnsupportedLookAndFeelException
+class javax.swing.event.ChangeEvent
+class javax.swing.event.ChangeListener
+class javax.swing.filechooser.FileNameExtensionFilter
+class javax.swing.filechooser.FileSystemView
+class javax.swing.table.DefaultTableModel
+class net.lingala.zip4j.ZipFile
+class net.lingala.zip4j.exception.ZipException
+class net.lingala.zip4j.model.ZipParameters
+class net.lingala.zip4j.model.enums.AesKeyStrength
+class net.lingala.zip4j.model.enums.EncryptionMethod
+class org.mindrot.jbcrypt.BCrypt
+interface com.digitalsignature.controller.sign.IDigitalSignatureController
+interface com.digitalsignature.controller.user.IUserController
+interface com.digitalsignature.dao.interfaces.ISign
+interface com.digitalsignature.dao.interfaces.IUser
+interface com.digitalsignature.model.IDigitalSignatureModel
+com.digitalsignature.common.Helper ..> com.digitalsignature.model.ModelAES
+com.digitalsignature.common.Helper ..> com.digitalsignature.model.ModelInputVerify
+com.digitalsignature.common.Helper ..> com.digitalsignature.model.ModelZipper
+com.digitalsignature.common.Helper ..> java.awt.Desktop
+com.digitalsignature.common.Helper ..> java.io.BufferedOutputStream
+com.digitalsignature.common.Helper ..> java.io.DataInputStream
+com.digitalsignature.common.Helper ..> java.io.File
+com.digitalsignature.common.Helper ..> java.io.FileInputStream
+com.digitalsignature.common.Helper ..> java.io.FileNotFoundException
+com.digitalsignature.common.Helper ..> java.io.FileOutputStream
+com.digitalsignature.common.Helper ..> java.io.IOException
+com.digitalsignature.common.Helper ..> java.io.InputStream
+com.digitalsignature.common.Helper ..> java.io.ObjectInputStream
+com.digitalsignature.common.Helper ..> java.io.ObjectOutputStream
+com.digitalsignature.common.Helper ..> java.math.BigInteger
+com.digitalsignature.common.Helper ..> java.nio.file.Files
+com.digitalsignature.common.Helper ..> java.security.GeneralSecurityException
+com.digitalsignature.common.Helper ..> java.security.KeyFactory
+com.digitalsignature.common.Helper ..> java.security.PrivateKey
+com.digitalsignature.common.Helper ..> java.security.PublicKey
+com.digitalsignature.common.Helper ..> java.security.spec.PKCS8EncodedKeySpec
+com.digitalsignature.common.Helper ..> java.security.spec.RSAPrivateKeySpec
+com.digitalsignature.common.Helper ..> java.security.spec.RSAPublicKeySpec
+com.digitalsignature.common.Helper ..> java.security.spec.X509EncodedKeySpec
+com.digitalsignature.common.Helper ..> java.text.SimpleDateFormat
+com.digitalsignature.common.Helper ..> java.util.ArrayList
+com.digitalsignature.common.Helper ..> java.util.Arrays
+com.digitalsignature.common.Helper ..> java.util.Base64
+com.digitalsignature.common.Helper ..> java.util.Calendar
+com.digitalsignature.common.Helper ..> java.util.List
+com.digitalsignature.common.Helper ..> java.util.logging.Level
+com.digitalsignature.common.Helper ..> java.util.logging.Logger
+com.digitalsignature.common.Helper ..> javax.crypto.Cipher
+com.digitalsignature.common.Helper ..> javax.swing.JFileChooser
+com.digitalsignature.common.Helper ..> javax.swing.filechooser.FileNameExtensionFilter
+com.digitalsignature.common.Helper ..> javax.swing.filechooser.FileSystemView
+com.digitalsignature.common.ViewHelper ..> java.lang.Override
+com.digitalsignature.common.ViewHelper ..> java.awt.Color
+com.digitalsignature.common.ViewHelper ..> java.awt.Component
+com.digitalsignature.common.ViewHelper ..> java.awt.Cursor
+com.digitalsignature.common.ViewHelper ..> java.util.ArrayList
+com.digitalsignature.common.ViewHelper ..> java.util.List
+com.digitalsignature.common.ViewHelper ..> java.util.Map
+com.digitalsignature.common.ViewHelper ..> javax.swing.JButton
+com.digitalsignature.common.ViewHelper ..> javax.swing.JPanel
+com.digitalsignature.common.ViewHelper ..> javax.swing.event.ChangeEvent
+com.digitalsignature.common.ViewHelper ..> javax.swing.event.ChangeListener
+com.digitalsignature.controller.App ..> com.digitalsignature.gui.GUI
+com.digitalsignature.controller.AppController ..> com.digitalsignature.controller.sign.DigitalSignatureController
+com.digitalsignature.controller.AppController ..> com.digitalsignature.controller.user.UserController
+com.digitalsignature.controller.AppController ..> com.digitalsignature.gui.GUI
+com.digitalsignature.controller.sign.DigitalSignatureController ..> java.lang.Override
+com.digitalsignature.controller.sign.DigitalSignatureController ..> com.digitalsignature.common.Helper
+com.digitalsignature.controller.sign.DigitalSignatureController ..> com.digitalsignature.dao.concrete.SignDAO
+com.digitalsignature.controller.sign.DigitalSignatureController ..> com.digitalsignature.gui.GUI
+com.digitalsignature.controller.sign.DigitalSignatureController ..> com.digitalsignature.model.ModelFriendKey
+com.digitalsignature.controller.sign.DigitalSignatureController ..> com.digitalsignature.model.ModelMyKey
+com.digitalsignature.controller.sign.DigitalSignatureController ..> java.io.IOException
+com.digitalsignature.controller.sign.DigitalSignatureController ..> java.security.GeneralSecurityException
+com.digitalsignature.controller.sign.DigitalSignatureController ..> java.security.InvalidKeyException
+com.digitalsignature.controller.sign.DigitalSignatureController ..> java.security.KeyPair
+com.digitalsignature.controller.sign.DigitalSignatureController ..> java.security.KeyPairGenerator
+com.digitalsignature.controller.sign.DigitalSignatureController ..> java.security.NoSuchAlgorithmException
+com.digitalsignature.controller.sign.DigitalSignatureController ..> java.security.PrivateKey
+com.digitalsignature.controller.sign.DigitalSignatureController ..> java.security.PublicKey
+com.digitalsignature.controller.sign.DigitalSignatureController ..> java.security.SecureRandom
+com.digitalsignature.controller.sign.DigitalSignatureController ..> java.security.Signature
+com.digitalsignature.controller.sign.DigitalSignatureController ..> java.security.SignatureException
+com.digitalsignature.controller.sign.DigitalSignatureController ..> java.util.HashMap
+com.digitalsignature.controller.sign.DigitalSignatureController ..> java.util.List
+com.digitalsignature.controller.sign.DigitalSignatureController ..> java.util.Map
+com.digitalsignature.controller.sign.DigitalSignatureController ..> java.util.logging.Level
+com.digitalsignature.controller.sign.DigitalSignatureController ..> java.util.logging.Logger
+com.digitalsignature.controller.sign.DigitalSignatureController ..> javax.crypto.Cipher
+com.digitalsignature.controller.sign.DigitalSignatureController ..> javax.swing.JComboBox
+com.digitalsignature.controller.sign.DigitalSignatureController ..> javax.swing.JOptionPane
+com.digitalsignature.controller.sign.DigitalSignatureController --|> com.digitalsignature.controller.sign.IDigitalSignatureController
+com.digitalsignature.controller.sign.KeyManagementController --|> com.digitalsignature.controller.sign.DigitalSignatureController
+com.digitalsignature.controller.sign.KeyManagementController ..> com.digitalsignature.gui.GUI
+com.digitalsignature.controller.sign.KeyManagementController ..> com.digitalsignature.model.ModelFriendKey
+com.digitalsignature.controller.sign.KeyManagementController ..> com.digitalsignature.model.ModelKey
+com.digitalsignature.controller.sign.KeyManagementController ..> com.digitalsignature.model.ModelMyKey
+com.digitalsignature.controller.sign.KeyManagementController ..> java.awt.Color
+com.digitalsignature.controller.sign.KeyManagementController ..> java.awt.Font
+com.digitalsignature.controller.sign.KeyManagementController ..> java.awt.event.MouseAdapter
+com.digitalsignature.controller.sign.KeyManagementController ..> java.awt.event.MouseEvent
+com.digitalsignature.controller.sign.KeyManagementController ..> java.io.File
+com.digitalsignature.controller.sign.KeyManagementController ..> java.security.KeyPair
+com.digitalsignature.controller.sign.KeyManagementController ..> java.util.ArrayList
+com.digitalsignature.controller.sign.KeyManagementController ..> java.util.List
+com.digitalsignature.controller.sign.KeyManagementController ..> javax.swing.JComboBox
+com.digitalsignature.controller.sign.KeyManagementController ..> javax.swing.JOptionPane
+com.digitalsignature.controller.sign.KeyManagementController ..> javax.swing.JScrollPane
+com.digitalsignature.controller.sign.KeyManagementController ..> javax.swing.JTable
+com.digitalsignature.controller.sign.KeyManagementController ..> javax.swing.JTextArea
+com.digitalsignature.controller.sign.KeyManagementController ..> javax.swing.table.DefaultTableModel
+com.digitalsignature.controller.sign.SignController ..> java.lang.Override
+com.digitalsignature.controller.sign.SignController --|> com.digitalsignature.controller.sign.DigitalSignatureController
+com.digitalsignature.controller.sign.SignController ..> com.digitalsignature.gui.GUI
+com.digitalsignature.controller.sign.SignController ..> com.digitalsignature.model.ModelMyKey
+com.digitalsignature.controller.sign.SignController ..> com.digitalsignature.model.ModelResult
+com.digitalsignature.controller.sign.SignController ..> java.awt.Color
+com.digitalsignature.controller.sign.SignController ..> java.awt.Font
+com.digitalsignature.controller.sign.SignController ..> java.awt.datatransfer.DataFlavor
+com.digitalsignature.controller.sign.SignController ..> java.awt.dnd.DnDConstants
+com.digitalsignature.controller.sign.SignController ..> java.awt.dnd.DropTarget
+com.digitalsignature.controller.sign.SignController ..> java.awt.dnd.DropTargetDropEvent
+com.digitalsignature.controller.sign.SignController ..> java.awt.event.ActionEvent
+com.digitalsignature.controller.sign.SignController ..> java.awt.event.ActionListener
+com.digitalsignature.controller.sign.SignController ..> java.awt.event.MouseAdapter
+com.digitalsignature.controller.sign.SignController ..> java.awt.event.MouseEvent
+com.digitalsignature.controller.sign.SignController ..> java.io.File
+com.digitalsignature.controller.sign.SignController ..> java.io.IOException
+com.digitalsignature.controller.sign.SignController ..> java.security.GeneralSecurityException
+com.digitalsignature.controller.sign.SignController ..> java.security.PublicKey
+com.digitalsignature.controller.sign.SignController ..> java.util.ArrayList
+com.digitalsignature.controller.sign.SignController ..> java.util.Arrays
+com.digitalsignature.controller.sign.SignController ..> java.util.List
+com.digitalsignature.controller.sign.SignController ..> java.util.logging.Level
+com.digitalsignature.controller.sign.SignController ..> java.util.logging.Logger
+com.digitalsignature.controller.sign.SignController ..> java.util.stream.Collectors
+com.digitalsignature.controller.sign.SignController ..> javax.swing.JOptionPane
+com.digitalsignature.controller.sign.SignController ..> javax.swing.SwingUtilities
+com.digitalsignature.controller.sign.SignController ..> javax.swing.table.DefaultTableModel
+com.digitalsignature.controller.sign.VerifyController ..> java.lang.Override
+com.digitalsignature.controller.sign.VerifyController --|> com.digitalsignature.controller.sign.DigitalSignatureController
+com.digitalsignature.controller.sign.VerifyController ..> com.digitalsignature.gui.GUI
+com.digitalsignature.controller.sign.VerifyController ..> com.digitalsignature.model.ModelFriendKey
+com.digitalsignature.controller.sign.VerifyController ..> com.digitalsignature.model.ModelInputVerify
+com.digitalsignature.controller.sign.VerifyController ..> com.digitalsignature.model.ModelResult
+com.digitalsignature.controller.sign.VerifyController ..> java.awt.Color
+com.digitalsignature.controller.sign.VerifyController ..> java.awt.Font
+com.digitalsignature.controller.sign.VerifyController ..> java.awt.datatransfer.DataFlavor
+com.digitalsignature.controller.sign.VerifyController ..> java.awt.dnd.DnDConstants
+com.digitalsignature.controller.sign.VerifyController ..> java.awt.dnd.DropTarget
+com.digitalsignature.controller.sign.VerifyController ..> java.awt.dnd.DropTargetDropEvent
+com.digitalsignature.controller.sign.VerifyController ..> java.awt.event.MouseAdapter
+com.digitalsignature.controller.sign.VerifyController ..> java.awt.event.MouseEvent
+com.digitalsignature.controller.sign.VerifyController ..> java.io.File
+com.digitalsignature.controller.sign.VerifyController ..> java.util.ArrayList
+com.digitalsignature.controller.sign.VerifyController ..> java.util.List
+com.digitalsignature.controller.sign.VerifyController ..> javax.swing.JOptionPane
+com.digitalsignature.controller.sign.VerifyController ..> javax.swing.SwingUtilities
+com.digitalsignature.controller.sign.VerifyController ..> javax.swing.table.DefaultTableModel
+com.digitalsignature.controller.user.UserController ..> java.lang.Override
+com.digitalsignature.controller.user.UserController ..> com.digitalsignature.dao.concrete.UserDAO
+com.digitalsignature.controller.user.UserController ..> com.digitalsignature.gui.GUI
+com.digitalsignature.controller.user.UserController ..> com.digitalsignature.model.ModelUserInfomation
+com.digitalsignature.controller.user.UserController ..> java.awt.Component
+com.digitalsignature.controller.user.UserController ..> java.awt.Container
+com.digitalsignature.controller.user.UserController ..> java.awt.Dimension
+com.digitalsignature.controller.user.UserController ..> java.awt.event.KeyAdapter
+com.digitalsignature.controller.user.UserController ..> java.awt.event.KeyEvent
+com.digitalsignature.controller.user.UserController ..> java.awt.event.MouseAdapter
+com.digitalsignature.controller.user.UserController ..> java.awt.event.MouseEvent
+com.digitalsignature.controller.user.UserController ..> javax.swing.JOptionPane
+com.digitalsignature.controller.user.UserController ..> javax.swing.JTextField
+com.digitalsignature.controller.user.UserController ..> org.mindrot.jbcrypt.BCrypt
+com.digitalsignature.controller.user.UserController --|> com.digitalsignature.controller.user.IUserController
+com.digitalsignature.dao.concrete.SignDAO ..> java.lang.Override
+com.digitalsignature.dao.concrete.SignDAO ..> com.digitalsignature.dao.factory.DaoFactory
+com.digitalsignature.dao.concrete.SignDAO ..> com.digitalsignature.model.ModelFriendKey
+com.digitalsignature.dao.concrete.SignDAO ..> com.digitalsignature.model.ModelMyKey
+com.digitalsignature.dao.concrete.SignDAO ..> java.sql.Connection
+com.digitalsignature.dao.concrete.SignDAO ..> java.sql.PreparedStatement
+com.digitalsignature.dao.concrete.SignDAO ..> java.sql.ResultSet
+com.digitalsignature.dao.concrete.SignDAO ..> java.sql.SQLException
+com.digitalsignature.dao.concrete.SignDAO ..> java.util.ArrayList
+com.digitalsignature.dao.concrete.SignDAO ..> java.util.List
+com.digitalsignature.dao.concrete.SignDAO --|> com.digitalsignature.dao.interfaces.ISign
+com.digitalsignature.dao.concrete.UserDAO ..> java.lang.Override
+com.digitalsignature.dao.concrete.UserDAO ..> com.digitalsignature.dao.factory.DaoFactory
+com.digitalsignature.dao.concrete.UserDAO ..> com.digitalsignature.model.ModelUserInfomation
+com.digitalsignature.dao.concrete.UserDAO ..> java.sql.Connection
+com.digitalsignature.dao.concrete.UserDAO ..> java.sql.PreparedStatement
+com.digitalsignature.dao.concrete.UserDAO ..> java.sql.ResultSet
+com.digitalsignature.dao.concrete.UserDAO ..> java.sql.SQLException
+com.digitalsignature.dao.concrete.UserDAO --|> com.digitalsignature.dao.interfaces.IUser
+com.digitalsignature.dao.factory.DaoFactory ..> java.sql.Connection
+com.digitalsignature.dao.factory.DaoFactory ..> java.sql.DriverManager
+com.digitalsignature.dao.factory.DaoFactory ..> java.sql.SQLException
+com.digitalsignature.gui.GUI ..> java.lang.SuppressWarnings
+com.digitalsignature.gui.GUI ..> com.digitalsignature.common.ViewHelper
+com.digitalsignature.gui.GUI ..> java.awt.Color
+com.digitalsignature.gui.GUI ..> java.net.URL
+com.digitalsignature.gui.GUI ..> java.util.HashMap
+com.digitalsignature.gui.GUI ..> java.util.List
+com.digitalsignature.gui.GUI ..> java.util.Map
+com.digitalsignature.gui.GUI ..> javax.swing.BorderFactory
+com.digitalsignature.gui.GUI ..> javax.swing.ImageIcon
+com.digitalsignature.gui.GUI ..> javax.swing.JButton
+com.digitalsignature.gui.GUI ..> javax.swing.JCheckBox
+com.digitalsignature.gui.GUI ..> javax.swing.JComboBox
+com.digitalsignature.gui.GUI ..> javax.swing.JDialog
+com.digitalsignature.gui.GUI --|> javax.swing.JFrame
+com.digitalsignature.gui.GUI ..> javax.swing.JLabel
+com.digitalsignature.gui.GUI ..> javax.swing.JMenuItem
+com.digitalsignature.gui.GUI ..> javax.swing.JPanel
+com.digitalsignature.gui.GUI ..> javax.swing.JPasswordField
+com.digitalsignature.gui.GUI ..> javax.swing.JPopupMenu
+com.digitalsignature.gui.GUI ..> javax.swing.JTabbedPane
+com.digitalsignature.gui.GUI ..> javax.swing.JTable
+com.digitalsignature.gui.GUI ..> javax.swing.JTextArea
+com.digitalsignature.gui.GUI ..> javax.swing.JTextField
+com.digitalsignature.gui.GUI ..> javax.swing.UIManager
+com.digitalsignature.gui.GUI ..> javax.swing.UnsupportedLookAndFeelException
+com.digitalsignature.model.ModelAES ..> java.io.UnsupportedEncodingException
+com.digitalsignature.model.ModelAES ..> java.security.MessageDigest
+com.digitalsignature.model.ModelAES ..> java.security.NoSuchAlgorithmException
+com.digitalsignature.model.ModelAES ..> java.util.Arrays
+com.digitalsignature.model.ModelAES ..> java.util.Base64
+com.digitalsignature.model.ModelAES ..> javax.crypto.Cipher
+com.digitalsignature.model.ModelAES ..> javax.crypto.spec.IvParameterSpec
+com.digitalsignature.model.ModelAES ..> javax.crypto.spec.SecretKeySpec
+com.digitalsignature.model.ModelFriendKey --|> com.digitalsignature.model.ModelKey
+com.digitalsignature.model.ModelInputVerify ..> java.lang.Override
+com.digitalsignature.model.ModelMyKey --|> com.digitalsignature.model.ModelKey
+com.digitalsignature.model.ModelResult ..> java.lang.Override
+com.digitalsignature.model.ModelZipper ..> java.io.File
+com.digitalsignature.model.ModelZipper ..> java.util.List
+com.digitalsignature.model.ModelZipper ..> net.lingala.zip4j.ZipFile
+com.digitalsignature.model.ModelZipper ..> net.lingala.zip4j.exception.ZipException
+com.digitalsignature.model.ModelZipper ..> net.lingala.zip4j.model.ZipParameters
+com.digitalsignature.model.ModelZipper ..> net.lingala.zip4j.model.enums.AesKeyStrength
+com.digitalsignature.model.ModelZipper ..> net.lingala.zip4j.model.enums.EncryptionMethod
+com.digitalsignature.controller.sign.IDigitalSignatureController ..> com.digitalsignature.model.ModelFriendKey
+com.digitalsignature.controller.sign.IDigitalSignatureController ..> com.digitalsignature.model.ModelMyKey
+com.digitalsignature.controller.sign.IDigitalSignatureController ..> java.security.KeyPair
+com.digitalsignature.controller.user.IUserController ..> com.digitalsignature.model.ModelUserInfomation
+com.digitalsignature.dao.interfaces.ISign ..> com.digitalsignature.model.ModelFriendKey
+com.digitalsignature.dao.interfaces.ISign ..> com.digitalsignature.model.ModelMyKey
+com.digitalsignature.dao.interfaces.ISign ..> java.util.List
+com.digitalsignature.dao.interfaces.IUser ..> com.digitalsignature.model.ModelUserInfomation
+@enduml
